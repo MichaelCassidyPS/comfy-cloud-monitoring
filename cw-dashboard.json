@@ -1,0 +1,19 @@
+{
+  "widgets": [
+    {
+      "type": "metric",
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "metrics": [
+          [ "AWS/CodeBuild", "FailedBuilds", "ProjectName", "${CODEBUILD_PROJECT}" ],
+          [ ".", "SucceededBuilds", ".", "." ],
+          [ ".", "BuildDuration", ".", ".", { "stat": "Average" } ]
+        ],
+        "view": "timeSeries",
+        "region": "${AWS::Region}",
+        "title": "Comfy Cloud Pipeline Health"
+      }
+    }
+  ]
+}
