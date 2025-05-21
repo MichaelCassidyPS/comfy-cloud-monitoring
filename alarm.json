@@ -1,0 +1,26 @@
+{
+  "AlarmName": "Comfy-BuildFail-Anomaly",
+  "ComparisonOperator": "GreaterThanUpperThreshold",
+  "EvaluationPeriods": 1,
+  "DatapointsToAlarm": 1,
+  "Metrics": [
+    {
+      "Id": "m1",
+      "ReturnData": true,
+      "MetricStat": {
+        "Metric": {
+          "Namespace": "ComfyCloud",
+          "MetricName": "BuildFailedEvents"
+        },
+        "Period": 60,
+        "Stat": "Sum"
+      },
+      "Label": "Failed Builds"
+    }
+  ],
+  "ThresholdMetricId": "m1",
+  "TreatMissingData": "notBreaching",
+  "AlarmActions": [
+    "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:ComfyPipelineAlerts"
+  ]
+}
