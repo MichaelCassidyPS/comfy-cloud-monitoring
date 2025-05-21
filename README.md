@@ -55,9 +55,9 @@ Confirm the email link and authorize the Slack channel in AWS Chatbot.
 1. Copy the helper script: `cp scripts/fail_build.sh .`  
 2. In **buildspec.yml** (pre_build phase) add: `- ./fail_build.sh`  
 3. Commit and push:  
-git add fail_build.sh buildspec.yml
-git commit -m "Intentional failure for monitoring demo"
-git push
+* git add fail_build.sh buildspec.yml
+* git commit -m "Intentional failure for monitoring demo"
+* git push
 
 ---
 
