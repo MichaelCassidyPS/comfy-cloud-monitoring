@@ -52,19 +52,13 @@ Confirm the email link and authorize the Slack channel in AWS Chatbot.
 
 ## 5  Trigger a Controlled Failure
 
-1. Copy the helper script: `cp scripts/fail_build.sh .`  
-2. In **buildspec.yml** (pre_build phase) add: `- ./fail_build.sh`  
-3. Commit and push:
-    git add fail_build.sh buildspec.yml
-    git commit -m "Intentional failure for monitoring demo"
-    git push
+cp scripts/fail_build.sh .
 
-
-Within about 60 seconds:
-
-* The **BuildFailedEvents** metric spikes on the dashboard.  
-* The alarm state changes to **ALARM**.  
-* Alerts arrive in Alex’s inbox and the dev Slack channel.
+# In buildspec.yml (pre_build phase) add:
+# - ./fail_build.sh
+git add fail_build.sh buildspec.yml
+git commit -m "Intentional failure for monitoring demo"
+git push
 
 ---
 
