@@ -1,0 +1,11 @@
+{
+  "filterName": "BuildFailedFilter",
+  "filterPattern": "\"BUILD_FAILED\"",
+  "metricTransformations": [
+    {
+      "metricName": "BuildFailedEvents",
+      "metricNamespace": "ComfyCloud",
+      "metricValue": "1"
+    }
+  ]
+}
