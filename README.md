@@ -37,11 +37,5 @@ Minimal instructions for the Module 2 demo: turn a **BUILD_FAILED** log line int
 
 ---
 
-## Repo map
-
-dashboard/cw-dashboard.json      # imported in Step 1 of the demo
-metric-filter/metric-filter.json # CLI alternative used in Step 2
-scripts/fail_build.sh            # forces a failing build in Step 5
-
 
 You now have a complete **metrics → dashboard → alarm → notification** pipeline for Comfy Cloud’s builds!
