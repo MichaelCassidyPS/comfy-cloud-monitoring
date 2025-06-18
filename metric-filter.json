@@ -1,6 +1,7 @@
 {
-  "filterName": "BuildFailedFilter",
-  "filterPattern": "\"BUILD_FAILED\"",
+  "logGroupName": "/aws/codebuild/hoodie-build",
+  "filterName": "BuildFailedEvents",
+  "filterPattern": "?BUILD_FAILED?",
   "metricTransformations": [
     {
       "metricName": "BuildFailedEvents",
