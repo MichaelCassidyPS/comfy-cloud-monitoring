@@ -1,18 +1,96 @@
 {
   "widgets": [
     {
+      "type": "text",
+      "x": 0,
+      "y": 0,
+      "width": 24,
+      "height": 1,
+      "properties": {
+        "markdown": "# Comfy Cloud – Pipeline Health"
+      }
+    },
+    {
       "type": "metric",
+      "x": 0,
+      "y": 1,
+      "width": 24,
+      "height": 6,
+      "properties": {
+        "title": "Total Builds (Sum)",
+        "metrics": [
+          [ "AWS/CodeBuild", "BuildSucceeded", "ProjectName", "${CODEBUILD_PROJECT}", { "stat": "Sum" } ],
+          [ ".", "BuildFailed", ".", ".", { "stat": "Sum", "color": "#d62728" } ]
+        ],
+        "period": 300,
+        "stacked": false,
+        "region": "${AWS::Region}",
+        "legend": { "position": "bottom" },
+        "view": "timeSeries"
+      }
+    },
+    {
+      "type": "metric",
+      "x": 0,
+      "y": 7,
       "width": 12,
       "height": 6,
       "properties": {
+        "title": "SOURCE Stage",
         "metrics": [
-          [ "AWS/CodeBuild", "FailedBuilds", "ProjectName", "${CODEBUILD_PROJECT}" ],
-          [ ".", "SucceededBuilds", ".", "." ],
-          [ ".", "BuildDuration", ".", ".", { "stat": "Average" } ]
+          [ "AWS/CodeBuild", "PhaseDuration", "ProjectName", "${CODEBUILD_PROJECT}", "Phase", "SUBMITTED", { "stat": "Average" } ]
         ],
         "view": "timeSeries",
-        "region": "${AWS::Region}",
-        "title": "Comfy Cloud Pipeline Health"
+        "period": 60,
+        "region": "${AWS::Region}"
+      }
+    },
+    {
+      "type": "metric",
+      "x": 12,
+      "y": 7,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "title": "BUILD Stage",
+        "metrics": [
+          [ "AWS/CodeBuild", "PhaseDuration", "ProjectName", "${CODEBUILD_PROJECT}", "Phase", "BUILD", { "stat": "Average" } ]
+        ],
+        "view": "timeSeries",
+        "period": 60,
+        "region": "${AWS::Region}"
+      }
+    },
+    {
+      "type": "metric",
+      "x": 0,
+      "y": 13,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "title": "TEST Stage",
+        "metrics": [
+          [ "AWS/CodeBuild", "PhaseDuration", "ProjectName", "${CODEBUILD_PROJECT}", "Phase", "POST_BUILD", { "stat": "Average" } ]
+        ],
+        "view": "timeSeries",
+        "period": 60,
+        "region": "${AWS::Region}"
+      }
+    },
+    {
+      "type": "metric",
+      "x": 12,
+      "y": 13,
+      "width": 12,
+      "height": 6,
+      "properties": {
+        "title": "DEPLOY Stage",
+        "metrics": [
+          [ "ComfyCloud", "BuildFailedEvents", { "stat": "Sum", "color": "#d62728" } ]
+        ],
+        "view": "timeSeries",
+        "period": 60,
+        "region": "${AWS::Region}"
       }
     }
   ]
