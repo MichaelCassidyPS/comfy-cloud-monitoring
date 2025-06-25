@@ -27,7 +27,7 @@ Module 2 demo: turn a **BUILD_FAILED** log line into a metric, add a dashboard &
      --notification-endpoint you@example.com
    ~~~
 
-3. *(Optional)* Slack alerts — console path **AWS Chatbot → Slack apps → Configure client**, pick `ComfyPipelineAlerts`, then authorize the workspace.  
+3. *(Optional)* Slack alerts — console path **Amazon Q Developer in chat applications (previously AWS Chatbot) → Slack → Configure client**, pick `ComfyPipelineAlerts`, then authorize the workspace.  
 4. Clone (or pull) this repo and stay on branch **main**
 
    ~~~bash
