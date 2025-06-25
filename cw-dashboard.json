@@ -19,7 +19,7 @@
       "properties": {
         "title": "Total Builds (Sum)",
         "metrics": [
-          [ "AWS/CodeBuild", "BuildSucceeded", "ProjectName", "${CODEBUILD_PROJECT}", { "stat": "Sum" } ],
+          [ "AWS/CodeBuild", "BuildSucceeded", "ProjectName", "hoodie-build", { "stat": "Sum" } ],
           [ ".", "BuildFailed", ".", ".", { "stat": "Sum", "color": "#d62728" } ]
         ],
         "period": 300,
