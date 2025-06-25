@@ -35,6 +35,23 @@ Minimal instructions for the Module 2 demo: turn a **BUILD_FAILED** log line int
    cd comfy-cloud-monitoring
    ~~~
 
+5. Resume the EKS node-group (if you scaled it to 0 after Module 1)
+
+   ~~~bash
+# 1) Bring nodes back (e.g. 2 nodes)
+eksctl scale nodegroup \
+  --cluster dev-eks \
+  --name <your-nodegroup-name> \
+  --nodes 2 \
+  --region us-east-1
+
+# 2) Wait a minute for nodes to register, then restore workloads
+kubectl scale deployment \
+  --all \
+  --replicas=2
+
+   ~~~
+
 ---
 
 
