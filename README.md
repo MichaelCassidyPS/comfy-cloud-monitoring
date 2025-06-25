@@ -38,18 +38,21 @@ Minimal instructions for the Module 2 demo: turn a **BUILD_FAILED** log line int
 5. Resume the EKS node-group (if you scaled it to 0 after Module 1)
 
    ~~~bash
-# 1) Bring nodes back (e.g. 2 nodes)
-eksctl scale nodegroup \
-  --cluster dev-eks \
-  --name <your-nodegroup-name> \
-  --nodes 2 \
-  --region us-east-1
+   # Bring the EKS node-group back online (scales to 2 nodes)
+   NG=$(eksctl get nodegroup --cluster dev-eks -o json | jq -r '.[0].Name')
 
-# 2) Wait a minute for nodes to register, then restore workloads
-kubectl scale deployment \
-  --all \
-  --replicas=2
+   eksctl scale nodegroup \
+     --cluster dev-eks \
+     --name "$NG" \
+     --nodes 2 \
+     --nodes-min 2 \
+     --nodes-max 2 \
+     --region us-east-1
 
+   # Wait ~1 minute for nodes to register, then restore workloads
+   kubectl scale deployment \
+     --all \
+     --replicas=2
    ~~~
 
 ---
