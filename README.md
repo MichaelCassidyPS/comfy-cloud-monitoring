@@ -1,6 +1,6 @@
 # Comfy Cloud – Pipeline Health Monitoring (Module 2)
 
-Minimal instructions for the Module 2 demo: turn a **BUILD_FAILED** log line into a metric, add a dashboard & anomaly-detection alarm, and send alerts to e-mail or Slack. Nothing extra.
+Minimal instructions for the Module 2 demo: turn a **BUILD_FAILED** log line into a metric, add a dashboard & anomaly-detection alarm, and send alerts to e-mail or Slack. 
 
 ---
 
@@ -12,7 +12,7 @@ Minimal instructions for the Module 2 demo: turn a **BUILD_FAILED** log line int
 | **kubectl** | ≥ 1.29 |
 
 1. **Module 1 pipeline is running** — CodeBuild project `hoodie-build` has succeeded at least once.  
-2. **SNS topic `ComfyPipelineAlerts` exists and you are subscribed**
+2. **SNS topic `ComfyPipelineAlerts` exists and you are subscribed. Do this in CloudShell**
 
    ~~~bash
    # create the topic if it doesn’t exist
