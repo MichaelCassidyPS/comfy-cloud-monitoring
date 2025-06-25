@@ -1,6 +1,6 @@
 # Comfy Cloud – Pipeline Health Monitoring (Module 2)
 
-Minimal instructions for the Module 2 demo: turn a **BUILD_FAILED** log line into a metric, add a dashboard & anomaly-detection alarm, and send alerts to e-mail or Slack. 
+Module 2 demo: turn a **BUILD_FAILED** log line into a metric, add a dashboard & anomaly-detection alarm, and send alerts to e-mail or Slack. 
 
 ---
 
@@ -58,4 +58,3 @@ Minimal instructions for the Module 2 demo: turn a **BUILD_FAILED** log line int
 ---
 
 
-You now have a complete **metrics → dashboard → alarm → notification** pipeline for Comfy Cloud’s builds!
