@@ -31,7 +31,7 @@ Module 2 demo: turn a **BUILD_FAILED** log line into a metric, add a dashboard &
 4. Clone (or pull) this repo and stay on branch **main**
 
    ~~~bash
-   git clone https://github.com/<your-handle>/comfy-cloud-monitoring.git
+   git clone https://github.com/MichaelCassidyPS/comfy-cloud-monitoring.git
    cd comfy-cloud-monitoring
    ~~~
 
