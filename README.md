@@ -35,25 +35,6 @@ Module 2 demo: turn a **BUILD_FAILED** log line into a metric, add a dashboard &
    cd comfy-cloud-monitoring
    ~~~
 
-5. Resume the EKS node-group (if you scaled it to 0 after Module 1)
-
-   ~~~bash
-   # Bring the EKS node-group back online (scales to 2 nodes)
-   NG=$(eksctl get nodegroup --cluster dev-eks -o json | jq -r '.[0].Name')
-
-   eksctl scale nodegroup \
-     --cluster dev-eks \
-     --name "$NG" \
-     --nodes 2 \
-     --nodes-min 2 \
-     --nodes-max 2 \
-     --region us-east-1
-
-   # Wait ~1 minute for nodes to register, then restore workloads
-   kubectl scale deployment \
-     --all \
-     --replicas=2
-   ~~~
 
 ---
 
