@@ -6,7 +6,8 @@
     {
       "metricName": "BuildFailedEvents",
       "metricNamespace": "ComfyCloud",
-      "metricValue": "1"
+      "metricValue": "1",
+      "defaultValue": 0
     }
   ]
 }
