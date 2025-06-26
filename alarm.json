@@ -26,6 +26,6 @@
   "ThresholdMetricId": "e1",
   "ComparisonOperator": "GREATER_THAN_UPPER_THRESHOLD",
   "AlarmActions": [
-    "arn:aws:sns:us-east-1:123456789012:ComfyPipelineAlerts"
+    "arn:aws:sns:us-east-1:<ACCOUNT_ID>:ComfyPipelineAlerts"
   ]
 }
