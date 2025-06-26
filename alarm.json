@@ -1,12 +1,9 @@
 {
-  "AlarmName": "Comfy-BuildFail-Anomaly",
-  "ComparisonOperator": "GreaterThanUpperThreshold",
-  "EvaluationPeriods": 1,
-  "DatapointsToAlarm": 1,
+  "AlarmName": "BuildFailedAnomaly",
+  "AlarmDescription": "Alarm when BuildFailedEvents deviates from learned normal range",
   "Metrics": [
     {
       "Id": "m1",
-      "ReturnData": true,
       "MetricStat": {
         "Metric": {
           "Namespace": "ComfyCloud",
@@ -15,12 +12,20 @@
         "Period": 60,
         "Stat": "Sum"
       },
-      "Label": "Failed Builds"
+      "ReturnData": false
+    },
+    {
+      "Id": "e1",
+      "Expression": "ANOMALY_DETECTION_BAND(m1, 2)",
+      "Label": "m1 anomaly band",
+      "ReturnData": true
     }
   ],
-  "ThresholdMetricId": "m1",
-  "TreatMissingData": "notBreaching",
+  "EvaluationPeriods": 3,
+  "DatapointsToAlarm": 3,
+  "ThresholdMetricId": "e1",
+  "ComparisonOperator": "GREATER_THAN_UPPER_THRESHOLD",
   "AlarmActions": [
-    "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:ComfyPipelineAlerts"
+    "arn:aws:sns:us-east-1:123456789012:ComfyPipelineAlerts"
   ]
 }
